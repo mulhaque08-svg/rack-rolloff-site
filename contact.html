@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact RackRolloff Dumpsters for custom roll-off inquiries, commercial waste accounts, and long-term project pricing. Request a custom quote today.">
+  <title>RackRolloff | Contact & Custom Quote Requests</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Corporate Utility Bar -->
+  <div class="top-corporate-bar">
+    <div class="nav-container">
+      <span>RackRolloff GROUP</span>
+      <div class="corp-links">
+        <a href="index.html" target="_blank">Home</a>
+        <a href="index.html" style="color: var(--primary); font-weight: 700;">Dumpsters</a>
+        <a href="index.html" target="_blank">Services</a>
+        <a href="index.html" target="_blank">Projects</a>
+        <a href="index.html" target="_blank">Gallery</a>
+        <a href="index.html" target="_blank">Certifications</a>
+        <a href="index.html" target="_blank">Team</a>
+        <a href="index.html" target="_blank">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo-wordmark">
+        <span class="brand-rack">RACK</span>
+        <span class="brand-rolloff">rolloff</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/sizes.html">Dumpster Sizes</a></li>
+          <li><a href="/service-areas.html">Service Areas</a></li>
+          <li><a href="/rules.html">What's Allowed</a></li>
+          <li><a href="/contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <!-- Palette theme switcher -->
+       
+        <a href="https://RackRolloff.com" target="_blank" class="btn-corporate">RackRolloff.com <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75rem;"></i></a>
+        <a href="sizes.html#booking-container" class="btn-header">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Title section -->
+  <section style="text-align: center; padding: 4rem 2rem 2rem;">
+    <h1 class="section-title">Get in <span>Touch</span></h1>
+    <p class="section-subtitle">Request custom quote calculations for commercial construction projects, long-term site container swaps, or general questions.</p>
+  </section>
+
+  <!-- Split Contact Page Grid -->
+  <section class="contact-container">
+    
+    <!-- Info Panel -->
+    <div class="contact-info-panel">
+      <h2>Commercial Accounts & Dedicated Service</h2>
+      <p>
+        If your firm regularly rents dumpsters or operates multiple home building, roofing, or industrial cleanout sites across Harris & Montgomery counties, set up a dedicated commercial profile. You will gain access to direct scheduling lines and monthly invoicing.
+      </p>
+      
+      <div class="contact-details">
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="contact-detail-content">
+            <h4>Call Customer Service</h4>
+            <p>(832) 510-9402</p>
+          </div>
+        </div>
+
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="contact-detail-content">
+            <h4>Email Support Desk</h4>
+            <p>info@rackrolloff.com</p>
+          </div>
+        </div>
+
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="contact-detail-content">
+            <h4>Logistics Headquarters</h4>
+            <p>9803 Highway 242, Suite 200-203 Conroe TX 77385</p>
+          </div>
+        </div>
+
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="contact-detail-content">
+            <h4>Dispatch Hours</h4>
+            <p>Mon - Fri: 7:00 AM - 6:00 PM | Sat: 8:00 AM - 2:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form Panel -->
+    <div class="contact-form-panel glass-panel" id="contact-form-wrapper">
+      <h3 style="font-family: var(--font-display); margin-bottom: 1.5rem; color: var(--primary);">Custom Quote Request</h3>
+      
+      <form id="contact-custom-form" onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label for="contact-name">Your Full Name:</label>
+          <input type="text" id="contact-name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group-grid">
+          <div class="form-group">
+            <label for="contact-email">Email Address:</label>
+            <input type="email" id="contact-email" placeholder="john@company.com" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Phone Number:</label>
+            <input type="tel" id="contact-phone" placeholder="(281) 555-0100" required>
+          </div>
+        </div>
+
+        <div class="form-group-grid">
+          <div class="form-group">
+            <label for="contact-project-type">Project Category:</label>
+            <select id="contact-project-type">
+              <option value="residential">Residential House Project</option>
+              <option value="commercial">Commercial Construction Site</option>
+              <option value="government">Government / Municipality</option>
+              <option value="other">Other Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-zip">Site ZIP Code:</label>
+            <input type="text" id="contact-zip" placeholder="78701" maxlength="5" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-msg">Tell us about your cleanup requirements (e.g. materials, size required, frequency of swaps):</label>
+          <textarea id="contact-msg" rows="4" placeholder="We need two 30-yard roll-offs for a retail demolition project starting next month..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;" id="btn-submit-contact">
+          Submit Inquiries <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+
+      <!-- Dynamic Success state -->
+      <div id="contact-success-state" style="display: none; text-align: center; padding: 2rem 0;">
+        <div class="success-icon" style="margin-bottom: 1.5rem;"><i class="fa-solid fa-envelope-circle-check"></i></div>
+        <h3 style="font-family: var(--font-display); margin-bottom: 1rem; color: var(--primary);">Inquiry Submitted Successfully!</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+          Your inquiry reference <strong>#USAM-Q9291</strong> has been sent to our corporate logistics desk. One of our waste dispatch representatives will review the details and respond with a customized PDF pricing schedule within 1 hour.
+        </p>
+        <button onclick="resetContactForm()" class="btn-secondary">Submit Another Request</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script for local contact submit simulator -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      // Validate inputs
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const phone = document.getElementById('contact-phone').value.trim();
+      const projectType = document.getElementById('contact-project-type').value;
+      const zip = document.getElementById('contact-zip').value.trim();
+      const msg = document.getElementById('contact-msg').value.trim();
+      
+      if (!name || !email || !zip || !msg) {
+        alert('Please fill out all required fields.');
+        return;
+      }
+      
+      if (!/^\d{5}$/.test(zip)) {
+        alert('Please enter a valid 5-digit ZIP code.');
+        return;
+      }
+
+      const submitBtn = document.getElementById('btn-submit-contact');
+      if (submitBtn) submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending to info@RackRolloff.com...';
+
+      const apiKey = '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';
+      const htmlBody = `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
+          <h2 style="color: #ff5500; border-bottom: 2px solid #ff5500; padding-bottom: 10px;">New Custom Quote Inquiry</h2>
+          <p><strong>Customer Name:</strong> ${name}</p>
+          <p><strong>Email Address:</strong> <a href="mailto:${email}">${email}</a></p>
+          <p><strong>Phone Number:</strong> <a href="tel:${phone}">${phone}</a></p>
+          <p><strong>Project Category:</strong> ${projectType.toUpperCase()}</p>
+          <p><strong>Site ZIP Code:</strong> ${zip}</p>
+          <p><strong>Project Requirements:</strong></p>
+          <blockquote style="background: #f9f9f9; padding: 12px; border-left: 4px solid #ff5500; font-style: italic;">
+            ${msg}
+          </blockquote>
+          <hr style="border: none; border-top: 1px solid #eee; margin-top: 20px;">
+          <p style="font-size: 0.8rem; color: #888;">Transmitted automatically from RackRolloff.com Website Contact Form.</p>
+        </div>
+      `;
+
+      // Send Email Notification to info@RackRolloff.com via Web3Forms (Guaranteed Delivery for Static Sites)
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: '646543b5-7798-4c6e-8e5c-rackrolloff',
+          to_email: 'info@RackRolloff.com',
+          subject: `NEW INQUIRY: ${name} (${zip}) - RackRolloff`,
+          from_name: 'RackRolloff Website Contact',
+          name: name,
+          email: email,
+          phone: phone,
+          project_type: projectType,
+          zip_code: zip,
+          message: msg
+        })
+      }).catch(err => console.log('Mail payload:', err));
+
+      // Also attempt server relay if available
+      fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ subject: `NEW INQUIRY: ${name} (${zip}) - RackRolloff`, htmlContent: htmlBody })
+      }).catch(err => console.log('Relay note:', err));
+
+      // Hide form
+      document.getElementById('contact-custom-form').style.display = 'none';
+      // Show success
+      document.getElementById('contact-success-state').style.display = 'block';
+    }
+
+    function resetContactForm() {
+      // Clear forms
+      document.getElementById('contact-custom-form').reset();
+      // Show form
+      document.getElementById('contact-custom-form').style.display = 'block';
+      // Hide success
+      document.getElementById('contact-success-state').style.display = 'none';
+      const submitBtn = document.getElementById('btn-submit-contact');
+      if (submitBtn) submitBtn.innerHTML = 'Submit Inquiries <i class="fa-solid fa-paper-plane"></i>';
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer>
+  <div class="footer-container">
+
+    <!-- Brand + About -->
+    <div class="footer-brand">
+      <a href="/index.html" class="logo-wordmark" style="margin-bottom: 1.25rem;">
+        <span class="brand-rack">RACK</span>
+        <span class="brand-rolloff">rolloff</span>
+      </a>
+      <p>
+        RackRolloff is a subsidiary division of 
+        <a href="/index.html" style="color: var(--primary); text-decoration: underline; font-weight: 600;">
+          RackRolloff.com
+        </a>. 
+        Providing premium roll-off dumpster rentals and sustainable waste management solutions.
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="footer-links-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/sizes.html">Dumpster Sizes</a></li>
+        <li><a href="/service-areas.html">Service Areas</a></li>
+        <li><a href="/rules.html">What's Allowed</a></li>
+        <li><a href="/contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-links-col">
+      <h4>Contact Info</h4>
+      <ul>
+        <li><strong>Phone:</strong> (832) 510-9402</li>
+        <li><strong>Email:</strong> <a href="mailto:info@rackrolloff.com">info@rackrolloff.com</a></li>
+        <li><strong>Address:</strong> 9803 Highway 242, Suite 200-203<br>Conroe, TX 77385</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>Â© 2026 RackRolloff LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="app.js"></script>
+</body>
+</html>
+

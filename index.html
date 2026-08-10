@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RackRolloff Dumpsters offers transparent, reliable roll-off dumpster rentals in Houston, TX and surrounding counties. Check availability instantly!">
+  <meta name="keywords" content="dumpster rental Houston, roll-off dumpster, waste management, construction bin rental, garbage disposal, Houston Texas, RackRolloff">
+  <title>RackRolloff Dumpsters | Reliable Roll-Off Dumpster Rentals in Houston, TX</title>
+  
+  <!-- FontAwesome Icons for modern aesthetic -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="nav-container">
+      <a href="/index.html" class="logo-wordmark">
+        <span class="brand-rack">RACK</span>
+        <span class="brand-rolloff">rolloff</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/index.html" class="active">Home</a></li>
+          <li><a href="/sizes.html">Dumpster Sizes</a></li>
+          <li><a href="/service-areas.html">Service Areas</a></li>
+          <li><a href="/rules.html">What's Allowed</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <!-- Palette theme switcher -->
+        
+        <a href="https://RackRolloff.com" target="_blank" class="btn-corporate">
+          RackRolloff.com <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75rem;"></i>
+        </a>
+        <a href="sizes.html#booking-container" class="btn-header" id="btn-nav-book">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Reliable Roll-Off <span>Dumpster Rentals</span> in Houston, TX</h1>
+      <p class="hero-subtitle">
+        Clutter-free spaces and smooth project cleanups start here with RackRolloff. Select your container size, check local delivery availability, and checkout online in under 3 minutes.
+      </p>
+      
+      <!-- ZIP Code Validator -->
+      <div class="zip-checker-container glass-panel" style="padding: 1.5rem; border-radius: 12px;">
+        <h3 style="margin-bottom: 0.75rem; font-family: var(--font-display); font-size: 1.15rem;">Check Availability in Your Area</h3>
+        <form class="zip-form" id="zip-validator-form">
+          <input type="text" id="zip-input" placeholder="Enter 5-digit ZIP (e.g. 77002)" maxlength="5" required>
+          <button type="submit" class="btn-primary" id="btn-zip-check">
+            Check <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+        <div id="zip-result" class="zip-result-message"></div>
+      </div>
+
+      <div class="hero-cta-buttons" style="display: flex; gap: 1rem;">
+        <a href="sizes.html" class="btn-primary" id="btn-hero-sizes">
+          View Sizes & Rates <i class="fa-solid fa-truck-ramp-box"></i>
+        </a>
+        <a href="contact.html" class="btn-secondary" id="btn-hero-contact">Custom Quote</a>
+      </div>
+    </div>
+    
+    <!-- Hero Image (Custom dumpster graphic) -->
+    <div class="hero-image-wrapper glass-panel" style="padding: 0; overflow: hidden; border-radius: var(--border-radius); border: 1px solid var(--border-color); display: flex; flex-direction: column;">
+      <div style="position: relative; width: 100%; height: 100%; min-height: 380px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+        <img src="assets/hero_delivery.jpg?v=2" alt="RackRolloff Container Delivery with Driveway Protection" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; transition: transform 0.5s ease;">
+        <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(7, 14, 11, 0.95) 0%, rgba(7, 14, 11, 0.4) 70%, transparent 100%); padding: 2rem 1.5rem 1.5rem; text-align: left; display: flex; flex-direction: column; gap: 0.25rem;">
+          <span style="background: var(--primary); color: #070e0b; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; width: fit-content; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.25rem;">
+            <i class="fa-solid fa-shield-halved"></i> Driveway Protection Enabled
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Core Features / Value Propositions -->
+  <section style="background: rgba(255, 255, 255, 0.01); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 5rem 0;">
+    <h2 class="section-title">Why Dumpster Rental with <span>RackRolloff</span>?</h2>
+    <p class="section-subtitle">We combine modern booking convenience, eco-friendly debris sorting, and prompt delivery services for residential and commercial spaces.</p>
+    
+    <div class="features-grid">
+      <div class="feature-card glass-panel">
+        <div class="feature-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+        <h3>Transparent Flat Rates</h3>
+        <p>No hidden fees. Every booking includes drop-off, pick-up, local landfill taxes, and a designated weight allowance upfront.</p>
+      </div>
+      
+      <div class="feature-card glass-panel">
+        <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
+        <h3>Eco-Friendly Disposal</h3>
+        <p>We work with sorting facilities to divert up to 60% of collected debris away from landfills into wood chip mulching and concrete recycling.</p>
+      </div>
+      
+      <div class="feature-card glass-panel">
+        <div class="feature-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+        <h3>Guaranteed On-Time Delivery</h3>
+        <p>Need it by 8 AM? Our modern fleet scheduling maps routes to ensure your roll-off arrives when your team starts work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials & Reviews -->
+  <section style="padding: 6rem 0; max-width: var(--max-width); margin: 0 auto;">
+    <h2 class="section-title">What Project Managers <span>Say</span></h2>
+    <p class="section-subtitle">Read feedback from residential homeowners, general contractors, and business owners in Houston.</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; padding: 0 2rem;">
+      <div class="glass-panel" style="padding: 2.5rem;">
+        <div style="display: flex; gap: 0.25rem; color: #fbbf24; margin-bottom: 1rem;">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem;">
+          "The online estimator made choosing the 20-yard container extremely simple. They delivered the container the next morning and dropped it exactly where requested to save my lawn. Payment was completed online."
+        </p>
+        <h4 style="font-family: var(--font-display); font-weight: 700;">Sarah K.</h4>
+        <p style="font-size: 0.8rem; color: var(--text-muted);">Homeowner, Houston, TX</p>
+      </div>
+
+      <div class="glass-panel" style="padding: 2.5rem;">
+        <div style="display: flex; gap: 0.25rem; color: #fbbf24; margin-bottom: 1rem;">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem;">
+          "As a general contractor, scheduling roll-offs is usually a headache. RackRolloff makes it seamless. Their invoice options for commercial accounts fit our business accounts perfectly. Will continue using them."
+        </p>
+        <h4 style="font-family: var(--font-display); font-weight: 700;">Marcus V.</h4>
+        <p style="font-size: 0.8rem; color: var(--text-muted);">Apex Construction Services</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section style="background: rgba(255, 255, 255, 0.01); border-top: 1px solid var(--border-color); padding: 6rem 0;">
+    <h2 class="section-title">Dumpster Rental <span>FAQs</span></h2>
+    <p class="section-subtitle">Frequently asked questions about ordering, weight limits, and delivery conditions.</p>
+    
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 2rem; display: flex; flex-direction: column; gap: 1.5rem;">
+      <div class="glass-panel" style="padding: 1.5rem 2rem;">
+        <h4 style="font-family: var(--font-display); font-weight: 700; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; color: var(--primary);">
+          How long can I keep the dumpster container?
+        </h4>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          Our standard residential rental period is 7 days. You can choose to extend your rental when booking for an additional $15 per day if your construction or cleanout takes longer.
+        </p>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.5rem 2rem;">
+        <h4 style="font-family: var(--font-display); font-weight: 700; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; color: var(--primary);">
+          What happens if I exceed the weight capacity?
+        </h4>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          Each container size includes a designated weight allowance (e.g., 3 tons for a 20-yard dumpster). If your load exceeds this, the sorting facility assesses an overage fee of $75/ton, which is charged transparently.
+        </p>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.5rem 2rem;">
+        <h4 style="font-family: var(--font-display); font-weight: 700; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; color: var(--primary);">
+          Do I need a permit to place the dumpster on the street?
+        </h4>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          If the dumpster is placed on private property (like your driveway), no permit is needed. If you require placing it on a public street or easement, the City of Houston requires a Right-of-Way Permit. Let us know and we can assist you with the request!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+  <div class="footer-container">
+
+    <!-- Brand + About -->
+    <div class="footer-brand">
+      <a href="/index.html" class="logo-wordmark" style="margin-bottom: 1.25rem;">
+        <span class="brand-rack">RACK</span>
+        <span class="brand-rolloff">rolloff</span>
+      </a>
+      <p>
+        RackRolloff is a subsidiary division of 
+        <a href="/index.html" style="color: var(--primary); text-decoration: underline; font-weight: 600;">
+          RackRolloff.com
+        </a>. 
+        Providing premium roll-off dumpster rentals and sustainable waste management solutions.
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="footer-links-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/sizes.html">Dumpster Sizes</a></li>
+        <li><a href="/service-areas.html">Service Areas</a></li>
+        <li><a href="/rules.html">What's Allowed</a></li>
+        <li><a href="/contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-links-col">
+      <h4>Contact Info</h4>
+      <ul>
+        <li><strong>Phone:</strong> (832) 510-9402</li>
+        <li><strong>Email:</strong> <a href="mailto:info@rackrolloff.com">info@rackrolloff.com</a></li>
+        <li><strong>Address:</strong> 9803 Highway 242, Suite 200-203<br>Conroe, TX 77385</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 RackRolloff LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="app.js"></script>
+</body>
+</html>
+

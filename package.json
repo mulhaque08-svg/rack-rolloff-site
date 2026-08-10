@@ -1,0 +1,14 @@
+{
+  "name": "rack-rolloff-site",
+  "version": "1.0.0",
+  "description": "RackRolloff Dumpster Rental Website with SendGrid & PayPal Integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}

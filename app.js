@@ -438,15 +438,12 @@ function initBookingFlow() {
       </div>
     `;
 
-    // Send Email Notification to info@RackRolloff.com via Web3Forms (Guaranteed Delivery for Static Sites)
-    fetch('https://api.web3forms.com/submit', {
+    // Send Email Notification directly to info@rackrolloff.com via FormSubmit Endpoint
+    fetch('https://formsubmit.co/ajax/info@rackrolloff.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
-        access_key: '646543b5-7798-4c6e-8e5c-rackrolloff',
-        to_email: 'info@RackRolloff.com',
-        subject: `NEW ORDER #${mockOrderId}: ${bookingState.size} Dumpster - ${bookingState.name}`,
-        from_name: 'RackRolloff Dispatch System',
+        _subject: `NEW DUMPSTER ORDER #${mockOrderId}: ${bookingState.size} - ${bookingState.name}`,
         order_id: mockOrderId,
         customer_name: bookingState.name,
         customer_email: bookingState.email,
@@ -457,19 +454,11 @@ function initBookingFlow() {
         delivery_date: inputDate.value,
         rental_duration: `${bookingState.duration} Days`,
         payment_method: bookingState.paymentMethod === 'paypal' ? `PayPal (${bookingState.paypalPayer || 'Verified Checkout'})` : bookingState.paymentMethod,
-        amount_paid: `$${bookingState.totalCost}`
+        total_charged: `$${bookingState.totalCost}`
       })
-    }).catch(err => console.log('Mail payload:', err));
-
-    // Also attempt server relay if available
-    fetch('/api/send-email', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        subject: `NEW ORDER #${mockOrderId}: ${bookingState.size} Dumpster - ${bookingState.name}`,
-        htmlContent: orderHtml
-      })
-    }).catch(err => console.log('Relay note:', err));
+    }).then(res => res.json()).then(data => {
+      console.log('[FORMSUBMIT] Order dispatch ticket sent:', data);
+    }).catch(err => console.log('[FORMSUBMIT] Note:', err));
   }
 
   // Bind booking clicks from outer buttons to auto-select

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <title>RackRolloff | Contact & Custom Quote Requests</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -31,10 +31,7 @@
   <!-- Navigation Header -->
   <header>
     <div class="nav-container">
-      <a href="index.html" class="logo-wordmark">
-        <span class="brand-rack">RACK</span>
-        <span class="brand-rolloff">rolloff</span>
-      </a>
+      <a href="index.html" class="logo-wordmark"><span class="brand-rack">RACK</span><span class="brand-rolloff">rolloff</span></a>
       <nav>
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
@@ -206,15 +203,12 @@
         </div>
       `;
 
-      // Send Email Notification to info@RackRolloff.com via Web3Forms (Guaranteed Delivery for Static Sites)
-      fetch('https://api.web3forms.com/submit', {
+      // Send Email Notification directly to info@rackrolloff.com via FormSubmit Endpoint
+      fetch('https://formsubmit.co/ajax/info@rackrolloff.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-          access_key: '646543b5-7798-4c6e-8e5c-rackrolloff',
-          to_email: 'info@RackRolloff.com',
-          subject: `NEW INQUIRY: ${name} (${zip}) - RackRolloff`,
-          from_name: 'RackRolloff Website Contact',
+          _subject: `NEW INQUIRY: ${name} (${zip}) - RackRolloff`,
           name: name,
           email: email,
           phone: phone,
@@ -222,14 +216,9 @@
           zip_code: zip,
           message: msg
         })
-      }).catch(err => console.log('Mail payload:', err));
-
-      // Also attempt server relay if available
-      fetch('/api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ subject: `NEW INQUIRY: ${name} (${zip}) - RackRolloff`, htmlContent: htmlBody })
-      }).catch(err => console.log('Relay note:', err));
+      }).then(res => res.json()).then(data => {
+        console.log('[FORMSUBMIT] Inquiry dispatched successfully:', data);
+      }).catch(err => console.log('[FORMSUBMIT] Note:', err));
 
       // Hide form
       document.getElementById('contact-custom-form').style.display = 'none';
@@ -255,10 +244,7 @@
 
     <!-- Brand + About -->
     <div class="footer-brand">
-      <a href="/index.html" class="logo-wordmark" style="margin-bottom: 1.25rem;">
-        <span class="brand-rack">RACK</span>
-        <span class="brand-rolloff">rolloff</span>
-      </a>
+      <a href="index.html" class="logo-wordmark" style="margin-bottom: 1.25rem;"><span class="brand-rack">RACK</span><span class="brand-rolloff">rolloff</span></a>
       <p>
         RackRolloff is a subsidiary division of 
         <a href="/index.html" style="color: var(--primary); text-decoration: underline; font-weight: 600;">
@@ -302,4 +288,14 @@
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="app.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 

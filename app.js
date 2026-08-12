@@ -101,7 +101,7 @@ function initBookingFlow() {
 
   // Pricing Model Rules
   const pricingModel = {
-    '11 Yard': { basePrice: 399, weightLimit: 2, dims: '12ft L x 8ft W x 3.5ft H' },
+    '11 Yard': { basePrice: 1, weightLimit: 2, dims: '12ft L x 8ft W x 3.5ft H' },
     '20 Yard': { basePrice: 499, weightLimit: 3, dims: '16ft L x 8ft W x 4.5ft H' },
     '25 Yard': { basePrice: 599, weightLimit: 4, dims: '16ft L x 8ft W x 6ft H' },
     '40 Yard': { basePrice: 699, weightLimit: 5, dims: '22ft L x 8ft W x 8ft H' },

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <title>RackRolloff | Dumpster Sizes, Dimensions & Booking</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -31,10 +31,7 @@
   <!-- Navigation Header -->
   <header>
     <div class="nav-container">
-      <a href="index.html" class="logo-wordmark">
-        <span class="brand-rack">RACK</span>
-        <span class="brand-rolloff">rolloff</span>
-      </a>
+      <a href="index.html" class="logo-wordmark"><span class="brand-rack">RACK</span><span class="brand-rolloff">rolloff</span></a>
       <nav>
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
@@ -75,7 +72,7 @@
           </div>
           <!-- Pricing Badge -->
           <div style="display: flex; align-items: baseline; gap: 0.25rem; margin: 0.5rem 0 1rem; font-family: var(--font-display);">
-            <span style="font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1;">$1</span>
+            <span style="font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1;">$399</span>
             <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">/ 7-day flat rate</span>
           </div>
           <p class="size-dimensions"><i class="fa-solid fa-maximize"></i> 12ft L x 7ft W x 4ft H</p>
@@ -372,72 +369,18 @@
           </div>
         </div>
 
-        <!-- Payment Method Tabs -->
-        <div class="payment-tabs">
-          <button class="payment-tab-btn active" data-method="card" type="button">
-            <i class="fa-solid fa-credit-card"></i> Credit Card
-          </button>
-          <button class="payment-tab-btn" data-method="paypal" type="button">
-            <i class="fa-brands fa-paypal" style="color: #0079C1; font-size: 1.1rem;"></i> PayPal
-          </button>
-          <button class="payment-tab-btn" data-method="express" type="button">
-            <i class="fa-brands fa-apple-pay" style="font-size: 1.25rem;"></i> Express Pay
-          </button>
-          <button class="payment-tab-btn" data-method="invoice" type="button">
-            <i class="fa-solid fa-file-invoice-dollar"></i> Business Invoice
-          </button>
-        </div>
-
-        <!-- Credit Card Tab Content -->
-        <div class="payment-tab-content active" id="pay-card">
-          <div class="form-group">
-            <label for="card-number">Credit Card Number:</label>
-            <input type="text" id="card-number" placeholder="4111 2222 3333 4444" maxlength="19" required>
-          </div>
-          <div class="form-group-grid">
-            <div class="form-group">
-              <label for="card-expiry">Expiration Date:</label>
-              <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" required>
-            </div>
-            <div class="form-group">
-              <label for="card-cvv">CVV:</label>
-              <input type="text" id="card-cvv" placeholder="123" maxlength="4" required>
-            </div>
-          </div>
-          <p style="font-size: 0.8rem; color: var(--text-muted);"><i class="fa-solid fa-lock"></i> SSL Secured 256-bit encrypted checkout. Card processing simulated.</p>
-        </div>
-
-        <!-- PayPal Tab Content -->
-        <div class="payment-tab-content" id="pay-paypal">
-          <p style="margin-bottom: 1.25rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">
-            Pay securely using your <strong>PayPal Account</strong>, Pay in 4, or Credit Card:
+        <!-- Payment Method Options -->
+        <div style="background: rgba(13, 71, 161, 0.04); padding: 1.25rem; border-radius: 10px; border: 1px solid rgba(13, 71, 161, 0.15); margin-bottom: 1.5rem; text-align: center;">
+          <h4 style="color: var(--primary); margin-bottom: 0.5rem; font-family: var(--font-display);">
+            <i class="fa-solid fa-lock" style="color: #2e7d32; margin-right: 6px;"></i> 256-Bit Encrypted Secure Checkout
+          </h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            Click <strong>Pay with Debit or Credit Card</strong> or <strong>PayPal</strong> below to complete your dumpster reservation instantly.
           </p>
-          <div id="paypal-button-container" style="max-width: 380px; margin: 0 auto;"></div>
-          <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 0.75rem;"><i class="fa-solid fa-lock"></i> Protected by PayPal Buyer Protection & 256-bit SSL encryption.</p>
+          
+          <!-- Official Encrypted PayPal & Card Buttons Container -->
+          <div id="paypal-button-container" style="max-width: 480px; margin: 0 auto; min-height: 120px;"></div>
         </div>
-
-        <!-- Express Checkout Content -->
-        <div class="payment-tab-content" id="pay-express">
-          <p style="margin-bottom: 1.25rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">Select an express booking method:</p>
-          <button class="express-pay-btn apple" type="button">
-            <i class="fa-brands fa-apple-pay"></i> Book with Apple Pay
-          </button>
-          <button class="express-pay-btn google" type="button">
-            <i class="fa-brands fa-google-pay" style="font-size: 2.2rem; line-height: 0.5;"></i> Book with Google Pay
-          </button>
-        </div>
-
-        <!-- Invoicing Commercial Content -->
-        <div class="payment-tab-content" id="pay-invoice">
-          <div class="form-group">
-            <label for="invoice-company">Company/Business Name:</label>
-            <input type="text" id="invoice-company" placeholder="Apex Roofing LLC">
-          </div>
-          <div class="form-group">
-            <label for="invoice-po">Purchase Order (PO) Number (Optional):</label>
-            <input type="text" id="invoice-po" placeholder="PO-99210-TX">
-          </div>
-          <p style="font-size: 0.85rem; color: var(--text-secondary);"><i class="fa-solid fa-circle-question"></i> This payment option is reserved for registered contractors and business commercial accounts. Invoices will be emailed after dump is weighed and completed.</p>
         </div>
       </div>
 
@@ -485,10 +428,7 @@
 
     <!-- Brand + About -->
     <div class="footer-brand">
-      <a href="/index.html" class="logo-wordmark" style="margin-bottom: 1.25rem;">
-        <span class="brand-rack">RACK</span>
-        <span class="brand-rolloff">rolloff</span>
-      </a>
+      <a href="index.html" class="logo-wordmark" style="margin-bottom: 1.25rem;"><span class="brand-rack">RACK</span><span class="brand-rolloff">rolloff</span></a>
       <p>
         RackRolloff is a subsidiary division of 
         <a href="/index.html" style="color: var(--primary); text-decoration: underline; font-weight: 600;">
@@ -534,4 +474,14 @@
   <script src="app.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 

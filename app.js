@@ -101,7 +101,7 @@ function initBookingFlow() {
 
   // Pricing Model Rules
   const pricingModel = {
-    '11 Yard': { basePrice: 1, weightLimit: 2, dims: '12ft L x 8ft W x 3.5ft H' },
+    '11 Yard': { basePrice: 399, weightLimit: 2, dims: '12ft L x 8ft W x 3.5ft H' },
     '20 Yard': { basePrice: 499, weightLimit: 3, dims: '16ft L x 8ft W x 4.5ft H' },
     '25 Yard': { basePrice: 599, weightLimit: 4, dims: '16ft L x 8ft W x 6ft H' },
     '40 Yard': { basePrice: 699, weightLimit: 5, dims: '22ft L x 8ft W x 8ft H' },
@@ -438,12 +438,14 @@ function initBookingFlow() {
       </div>
     `;
 
-    // Send Email Notification directly to info@rackrolloff.com via FormSubmit Endpoint
-    fetch('https://formsubmit.co/ajax/info@rackrolloff.com', {
+    // Send Email Notification directly to info@rackrolloff.com & Auto-Respond Receipt to Customer
+    fetch('https://formsubmit.co/ajax/3dc35470bcb7e719b96884a42e269121', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        _subject: `NEW DUMPSTER ORDER #${mockOrderId}: ${bookingState.size} - ${bookingState.name}`,
+        _subject: `NEW ORDER #${mockOrderId}: ${bookingState.size} - ${bookingState.name}`,
+        _replyto: bookingState.email,
+        _autorespond: `Thank you for choosing RackRolloff! Your dumpster rental booking #${mockOrderId} for a ${bookingState.size} container has been confirmed for delivery on ${inputDate.value}. If you have any questions, reply directly to this email or contact us at info@rackrolloff.com.`,
         order_id: mockOrderId,
         customer_name: bookingState.name,
         customer_email: bookingState.email,
@@ -457,7 +459,7 @@ function initBookingFlow() {
         total_charged: `$${bookingState.totalCost}`
       })
     }).then(res => res.json()).then(data => {
-      console.log('[FORMSUBMIT] Order dispatch ticket sent:', data);
+      console.log('[FORMSUBMIT] Order ticket & customer receipt dispatched:', data);
     }).catch(err => console.log('[FORMSUBMIT] Note:', err));
   }
 

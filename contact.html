@@ -204,21 +204,20 @@
       `;
 
       // Send Email Notification directly to info@rackrolloff.com via FormSubmit Endpoint
-      fetch('https://formsubmit.co/ajax/info@rackrolloff.com', {
+      fetch('https://formsubmit.co/ajax/3dc35470bcb7e719b96884a42e269121', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          _subject: `NEW INQUIRY: ${name} (${zip}) - RackRolloff`,
           name: name,
           email: email,
           phone: phone,
-          project_type: projectType,
-          zip_code: zip,
+          projectType: projectType,
+          zip: zip,
           message: msg
         })
       }).then(res => res.json()).then(data => {
-        console.log('[FORMSUBMIT] Inquiry dispatched successfully:', data);
-      }).catch(err => console.log('[FORMSUBMIT] Note:', err));
+        console.log('[SERVER API] Inquiry email sent:', data);
+      }).catch(err => console.log('[SERVER API] Note:', err));
 
       // Hide form
       document.getElementById('contact-custom-form').style.display = 'none';

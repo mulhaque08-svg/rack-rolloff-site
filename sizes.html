@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -38,6 +38,12 @@
   </div>
 
   <!-- Navigation Header -->
+    <!-- Top Promo Announcement Bar -->
+  <div class="top-promo-bar">
+    <div class="nav-container" style="justify-content: center; text-align: center;">
+      <span>ðŸ”¥ <strong>Special Offer:</strong> Save <strong> OFF</strong> Your Dumpster Order â€” Use Code <strong>RACK25</strong> at Checkout! <a href="sizes.html">Claim Offer <i class="fa-solid fa-arrow-right"></i></a></span>
+    </div>
+  </div>
   <header>
     <div class="nav-container">
       <a href="index.html" class="logo-wordmark"><span class="brand-rack">RACK</span><span class="brand-rolloff">rolloff</span></a>
@@ -314,7 +320,16 @@
             </select>
           </div>
         </div>
-        <p style="font-size: 0.85rem; color: var(--text-secondary);"><i class="fa-solid fa-circle-info" style="color: var(--secondary);"></i> All roll-offs are delivered between 7:00 AM and 4:00 PM. Our dispatch team will send a text with a delivery estimate on the morning of delivery.</p>
+
+        <div class="form-group" style="margin-top: 1rem;">
+          <label for="delivery-time-window">Preferred Delivery Time Window:</label>
+          <select id="delivery-time-window">
+            <option value="Morning (7:00 AM - 12:00 PM)">Morning Window (7:00 AM - 12:00 PM)</option>
+            <option value="Afternoon (12:00 PM - 5:00 PM)">Afternoon Window (12:00 PM - 5:00 PM)</option>
+            <option value="Flexible (Anytime 7:00 AM - 6:00 PM)">Flexible (Anytime 7:00 AM - 6:00 PM)</option>
+          </select>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.75rem;"><i class="fa-solid fa-circle-info" style="color: var(--secondary);"></i> Our dispatch team will send a text update prior to arrival during your chosen delivery window.</p>
       </div>
 
       <!-- STEP 3: Contact details & Delivery Address -->
@@ -481,8 +496,14 @@
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>  <!-- PayPal SDK JavaScript with Smart Payment Buttons -->
   <script src="https://www.paypal.com/sdk/js?client-id=BAAoitS4eO_jGhNjOVdLMafcWrAzWdNzvGzvwJUIicZ2wW4S_clJNKzS_fHv-30ZCI-l31s60eTLPUZMq0&currency=USD&enable-funding=venmo,paylater"></script>
   <script src="app.js"></script>
+  <!-- Mobile Sticky Call Button -->
+  <a href="tel:8325108005" class="mobile-sticky-call">
+    <i class="fa-solid fa-phone"></i> Call (832) 510-8005
+  </a>
 </body>
 </html>
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    Rack Rolloff DESIGN SYSTEM & GLOBAL STYLES
    ========================================================================== */
 
@@ -1655,4 +1655,192 @@ footer {
 .cities-list-box {
   margin: 0 auto;
   max-width: 700px;
+}
+
+/* ==========================================================================
+   5 HIGH-CONVERTING UPGRADE STYLES
+   ========================================================================== */
+
+/* 1. Top Promo Bar */
+.top-promo-bar {
+  background: linear-gradient(90deg, #0d47a1 0%, #1565c0 50%, #0d47a1 100%);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.85rem;
+}
+
+.top-promo-bar a {
+  color: #ffeb3b;
+  text-decoration: none;
+  font-weight: 700;
+  transition: opacity 0.2s ease;
+}
+
+.top-promo-bar a:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+/* 2. Flat-Rate Guarantee Strip */
+.flat-rate-guarantee-strip {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: rgba(13, 71, 161, 0.05);
+  border: 1px solid rgba(13, 71, 161, 0.15);
+  padding: 0.85rem 1.5rem;
+  border-radius: 50px;
+  margin: 1.5rem auto;
+  max-width: 900px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.flat-rate-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flat-rate-item i {
+  color: #2e7d32;
+  font-size: 1.1rem;
+}
+
+/* 3. Additional Services Cards (Junk Removal & Demolition) */
+.extra-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.extra-service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.75rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.extra-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.extra-service-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background: rgba(13, 71, 161, 0.1);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* 4. Customer Testimonials Section */
+.testimonials-section {
+  padding: 4rem 2rem;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 2.5rem auto 0;
+}
+
+.testimonial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.testimonial-stars {
+  color: #fbc02d;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.testimonial-quote {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.testimonial-info h5 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.testimonial-info span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* 5. Mobile Floating Call Button */
+.mobile-sticky-call {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+  color: #ffffff !important;
+  padding: 0.85rem 1.4rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-sticky-call:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(46, 125, 50, 0.5);
+}
+
+@media (min-width: 769px) {
+  .mobile-sticky-call {
+    display: none; /* Only show on mobile screens */
+  }
 }

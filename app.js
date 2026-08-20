@@ -391,6 +391,7 @@ function initBookingFlow() {
   function processFinalBooking() {
     // Generate simple receipt
     const mockOrderId = 'RACK-' + Math.floor(100000 + Math.random() * 900000);
+    const timeWindowVal = document.getElementById('delivery-time-window') ? document.getElementById('delivery-time-window').value : 'Standard Delivery (7 AM - 6 PM)';
     
     if (orderIdLabel) orderIdLabel.textContent = mockOrderId;
     if (successEmailLabel) successEmailLabel.textContent = bookingState.email;
@@ -398,9 +399,9 @@ function initBookingFlow() {
       successDetailsLabel.innerHTML = `
         <strong>Container:</strong> ${bookingState.size} (${pricingModel[bookingState.size].dims})<br>
         <strong>Waste Category:</strong> ${bookingState.wasteType.toUpperCase()}<br>
-        <strong>Delivery:</strong> ${inputDate.value} (${bookingState.duration} day rental)<br>
+        <strong>Delivery Date & Window:</strong> ${inputDate.value} | ${timeWindowVal} (${bookingState.duration} day rental)<br>
         <strong>Address:</strong> ${bookingState.address}, TX ${bookingState.zipCode}<br>
-        <strong>Payment Method:</strong> ${bookingState.paymentMethod === 'card' ? 'Credit Card (ending ' + inputCardNum.value.slice(-4) + ')' : bookingState.paymentMethod === 'paypal' ? 'PayPal Checkout (' + (bookingState.paypalPayer || 'Verified') + ')' : bookingState.paymentMethod === 'invoice' ? 'Commercial Invoicing (' + bookingState.companyName + ')' : 'Express Pay'}<br>
+        <strong>Payment Method:</strong> ${bookingState.paymentMethod === 'card' ? 'Credit Card' : bookingState.paymentMethod === 'paypal' ? 'PayPal Checkout (' + (bookingState.paypalPayer || 'Verified') + ')' : bookingState.paymentMethod === 'invoice' ? 'Commercial Invoicing (' + bookingState.companyName + ')' : 'Express Pay'}<br>
         <strong>Amount Charged:</strong> $${bookingState.totalCost}
       `;
     }
@@ -425,6 +426,7 @@ function initBookingFlow() {
           <tr><td style="padding: 8px 0; font-weight: bold;">Container Size:</td><td><strong style="color: #ff5500; font-size: 1.1rem;">${bookingState.size} Roll-Off</strong> (${pricingModel[bookingState.size].dims})</td></tr>
           <tr><td style="padding: 8px 0; font-weight: bold;">Waste Category:</td><td>${bookingState.wasteType.toUpperCase()}</td></tr>
           <tr><td style="padding: 8px 0; font-weight: bold;">Delivery Date:</td><td><strong>${inputDate.value}</strong> (${bookingState.duration} Day Rental)</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Time Window:</td><td><strong style="color: #0d47a1;">${timeWindowVal}</strong></td></tr>
           <tr><td style="padding: 8px 0; font-weight: bold;">Delivery Address:</td><td>${bookingState.address}, TX ${bookingState.zipCode}</td></tr>
           <tr><td style="padding: 8px 0; font-weight: bold;">Customer Name:</td><td>${bookingState.name}</td></tr>
           <tr><td style="padding: 8px 0; font-weight: bold;">Customer Email:</td><td><a href="mailto:${bookingState.email}">${bookingState.email}</a></td></tr>

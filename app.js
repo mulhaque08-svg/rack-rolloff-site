@@ -274,10 +274,54 @@ function initBookingFlow() {
   // Initial pricing layout load
   updateCalculations();
 
+  // Promo Code Handler
+  const inputPromo = document.getElementById('promo-code-input');
+  const btnApplyPromo = document.getElementById('btn-apply-promo');
+  const promoMsg = document.getElementById('promo-msg');
+  const rowDiscount = document.getElementById('row-discount');
+  const sumDiscount = document.getElementById('sum-discount');
+
+  if (btnApplyPromo) {
+    btnApplyPromo.addEventListener('click', function() {
+      const code = inputPromo.value.trim().toUpperCase();
+      if (code === 'RACK25') {
+        // Enforce 1-time use per customer limit
+        if (localStorage.getItem('rack_promo_used') === 'true') {
+          if (promoMsg) {
+            promoMsg.style.display = 'block';
+            promoMsg.style.color = '#c62828';
+            promoMsg.textContent = '❌ Code RACK25 is for First-Time Customers only (Already redeemed on this device).';
+          }
+          return;
+        }
+
+        bookingState.discount = 25;
+        bookingState.promoCode = 'RACK25';
+        if (rowDiscount) rowDiscount.style.display = 'flex';
+        if (sumDiscount) sumDiscount.textContent = '-$25';
+        if (promoMsg) {
+          promoMsg.style.display = 'block';
+          promoMsg.style.color = '#2e7d32';
+          promoMsg.textContent = '✓ Code RACK25 applied! Saved $25 OFF (First-Time Order).';
+        }
+        updateCalculations();
+      } else if (code === '') {
+        alert('Please enter a promo code.');
+      } else {
+        if (promoMsg) {
+          promoMsg.style.display = 'block';
+          promoMsg.style.color = '#c62828';
+          promoMsg.textContent = '❌ Invalid Promo Code. Use code RACK25 for $25 OFF.';
+        }
+      }
+    });
+  }
+
   // Helper functions
   function updateCalculations() {
     const wasteCost = Math.round(bookingState.basePrice * (bookingState.wasteMultiplier - 1));
-    const finalTotal = Math.round((bookingState.basePrice * bookingState.wasteMultiplier) + bookingState.durationCost);
+    const rawTotal = Math.round((bookingState.basePrice * bookingState.wasteMultiplier) + bookingState.durationCost);
+    const finalTotal = Math.max(0, rawTotal - (bookingState.discount || 0));
 
     if (summarySize) summarySize.textContent = `${bookingState.size} Container`;
     if (summaryDuration) summaryDuration.textContent = `${bookingState.duration} Days Rental`;
@@ -389,6 +433,11 @@ function initBookingFlow() {
   }
 
   function processFinalBooking() {
+    // Save promo code usage lock to localStorage for first-time customer enforcement
+    if (bookingState.discount > 0) {
+      localStorage.setItem('rack_promo_used', 'true');
+    }
+
     // Generate simple receipt
     const mockOrderId = 'RACK-' + Math.floor(100000 + Math.random() * 900000);
     const timeWindowVal = document.getElementById('delivery-time-window') ? document.getElementById('delivery-time-window').value : 'Standard Delivery (7 AM - 6 PM)';

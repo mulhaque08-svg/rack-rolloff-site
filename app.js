@@ -80,11 +80,22 @@ function initBookingFlow() {
   const stepper = document.getElementById('booking-stepper');
   if (!stepper) return;
 
-  // State
+  // Pricing Model Rules
+  const pricingModel = {
+    '11 Yard': { basePrice: 399, weightLimit: 2, dims: '12ft L x 8ft W x 3.5ft H' },
+    '20 Yard': { basePrice: 499, weightLimit: 3, dims: '16ft L x 8ft W x 4.5ft H' },
+    '25 Yard': { basePrice: 599, weightLimit: 4, dims: '16ft L x 8ft W x 6ft H' },
+    '40 Yard': { basePrice: 699, weightLimit: 5, dims: '22ft L x 8ft W x 8ft H' },
+  };
+
+  // State - Sync initially from HTML selected card
   let currentStep = 1;
+  const initialSelectedCard = document.querySelector('.selection-option[data-size].selected');
+  const initialSize = (initialSelectedCard && initialSelectedCard.getAttribute('data-size')) ? initialSelectedCard.getAttribute('data-size') : '11 Yard';
+
   const bookingState = {
-    size: '20 Yard',
-    basePrice: 499,
+    size: initialSize,
+    basePrice: pricingModel[initialSize] ? pricingModel[initialSize].basePrice : 399,
     wasteType: 'household',
     wasteMultiplier: 1.0,
     duration: 7,
@@ -97,14 +108,6 @@ function initBookingFlow() {
     email: '',
     phone: '',
     paymentMethod: 'card', // card, express, invoice
-  };
-
-  // Pricing Model Rules
-  const pricingModel = {
-    '11 Yard': { basePrice: 399, weightLimit: 2, dims: '12ft L x 8ft W x 3.5ft H' },
-    '20 Yard': { basePrice: 499, weightLimit: 3, dims: '16ft L x 8ft W x 4.5ft H' },
-    '25 Yard': { basePrice: 599, weightLimit: 4, dims: '16ft L x 8ft W x 6ft H' },
-    '40 Yard': { basePrice: 699, weightLimit: 5, dims: '22ft L x 8ft W x 8ft H' },
   };
 
   const wasteMultipliers = {
@@ -530,7 +533,22 @@ function initBookingFlow() {
       updateCalculations();
 
       // Scroll to booking container
-      document.getElementById('booking-container').scrollIntoView({ behavior: 'smooth' });
+      const container = document.getElementById('booking-container');
+      if (container) {
+        container.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
+
+  // Check URL hash or query params on load to auto-sync size choice
+  const hash = window.location.hash;
+  if (hash.includes('11')) {
+    window.initiateBookingForSize('11 Yard');
+  } else if (hash.includes('25')) {
+    window.initiateBookingForSize('25 Yard');
+  } else if (hash.includes('40')) {
+    window.initiateBookingForSize('40 Yard');
+  } else if (hash.includes('20')) {
+    window.initiateBookingForSize('20 Yard');
+  }
 }

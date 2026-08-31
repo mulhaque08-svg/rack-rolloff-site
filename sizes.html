@@ -308,13 +308,13 @@
         
         <div class="form-group-grid">
           <div class="form-group">
-            <label for="delivery-date">Select Delivery Date:</label>
-            <input type="date" id="delivery-date" required>
+            <label for="delivery-date"><i class="fa-solid fa-calendar-days" style="color: var(--primary); margin-right: 4px;"></i> Select Delivery Date:</label>
+            <input type="date" id="delivery-date" name="delivery-date" required style="min-height: 48px; font-size: 1rem; color-scheme: light; width: 100%; font-family: inherit;">
           </div>
           
           <div class="form-group">
-            <label for="rental-duration">Rental Duration:</label>
-            <select id="rental-duration">
+            <label for="rental-duration"><i class="fa-solid fa-clock" style="color: var(--primary); margin-right: 4px;"></i> Rental Duration:</label>
+            <select id="rental-duration" style="min-height: 48px; font-size: 1rem;">
               <option value="7">7 Days (Included in Base Price)</option>
               <option value="10">10 Days (+$30 Extra)</option>
               <option value="14">14 Days (+$70 Extra)</option>

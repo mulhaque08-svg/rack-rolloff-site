@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -139,6 +139,11 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <label for="contact-address">Delivery / Project Street Address & City:</label>
+          <input type="text" id="contact-address" placeholder="1234 Main St, Houston TX" required>
+        </div>
+
         <div class="form-group-grid">
           <div class="form-group">
             <label for="contact-project-type">Service Required:</label>
@@ -153,7 +158,7 @@
           </div>
           <div class="form-group">
             <label for="contact-zip">Site ZIP Code:</label>
-            <input type="text" id="contact-zip" placeholder="78701" maxlength="5" required>
+            <input type="text" id="contact-zip" placeholder="77002" maxlength="5" required>
           </div>
         </div>
 
@@ -172,7 +177,7 @@
         <div class="success-icon" style="margin-bottom: 1.5rem;"><i class="fa-solid fa-envelope-circle-check"></i></div>
         <h3 style="font-family: var(--font-display); margin-bottom: 1rem; color: var(--primary);">Inquiry Submitted Successfully!</h3>
         <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-          Your inquiry reference <strong>#USAM-Q9291</strong> has been sent to our corporate logistics desk. One of our waste dispatch representatives will review the details and respond with a customized PDF pricing schedule within 1 hour.
+          Your inquiry reference <strong>#RACK-Q9291</strong> has been sent to our corporate logistics desk. One of our waste dispatch representatives will review the details and respond with a customized pricing schedule within 1 hour.
         </p>
         <button onclick="resetContactForm()" class="btn-secondary">Submit Another Request</button>
       </div>
@@ -187,11 +192,12 @@
       const name = document.getElementById('contact-name').value.trim();
       const email = document.getElementById('contact-email').value.trim();
       const phone = document.getElementById('contact-phone').value.trim();
+      const address = document.getElementById('contact-address') ? document.getElementById('contact-address').value.trim() : '';
       const projectType = document.getElementById('contact-project-type').value;
       const zip = document.getElementById('contact-zip').value.trim();
       const msg = document.getElementById('contact-msg').value.trim();
       
-      if (!name || !email || !zip || !msg) {
+      if (!name || !email || !address || !zip || !msg) {
         alert('Please fill out all required fields.');
         return;
       }
@@ -204,35 +210,19 @@
       const submitBtn = document.getElementById('btn-submit-contact');
       if (submitBtn) submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending to info@RackRolloff.com...';
 
-      const apiKey = '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';
-      const htmlBody = `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
-          <h2 style="color: #ff5500; border-bottom: 2px solid #ff5500; padding-bottom: 10px;">New Custom Quote Inquiry</h2>
-          <p><strong>Customer Name:</strong> ${name}</p>
-          <p><strong>Email Address:</strong> <a href="mailto:${email}">${email}</a></p>
-          <p><strong>Phone Number:</strong> <a href="tel:${phone}">${phone}</a></p>
-          <p><strong>Project Category:</strong> ${projectType.toUpperCase()}</p>
-          <p><strong>Site ZIP Code:</strong> ${zip}</p>
-          <p><strong>Project Requirements:</strong></p>
-          <blockquote style="background: #f9f9f9; padding: 12px; border-left: 4px solid #ff5500; font-style: italic;">
-            ${msg}
-          </blockquote>
-          <hr style="border: none; border-top: 1px solid #eee; margin-top: 20px;">
-          <p style="font-size: 0.8rem; color: #888;">Transmitted automatically from RackRolloff.com Website Contact Form.</p>
-        </div>
-      `;
-
       // Send Email Notification directly to info@rackrolloff.com via FormSubmit Endpoint
       fetch('https://formsubmit.co/ajax/3dc35470bcb7e719b96884a42e269121', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          _subject: `NEW CUSTOM QUOTE REQUEST: ${projectType.toUpperCase()} - ${name}`,
           name: name,
           email: email,
           phone: phone,
-          projectType: projectType,
-          zip: zip,
-          message: msg
+          delivery_address: `${address}, TX ${zip}`,
+          project_category: projectType,
+          zip_code: zip,
+          project_requirements: msg
         })
       }).then(res => res.json()).then(data => {
         console.log('[SERVER API] Inquiry email sent:', data);

@@ -459,6 +459,7 @@ header {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
+input[type="date"],
 select,
 textarea {
   background: rgba(10, 15, 24, 0.5);
@@ -467,8 +468,10 @@ textarea {
   color: var(--text-primary);
   padding: 0.75rem 1rem;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1rem;
+  min-height: 48px;
   width: 100%;
+  color-scheme: light;
   transition: var(--transition-smooth);
 }
 
@@ -481,8 +484,9 @@ textarea {
 [data-theme="light-orange"] input,
 [data-theme="light-orange"] select,
 [data-theme="light-orange"] textarea {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--text-primary);
+  color-scheme: light;
 }
 
 input:focus,
